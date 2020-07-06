@@ -4,10 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack --config webpack.dev.js webpack-dev-server --open",
-    "build": "webpack --config webpack.prod.js",
-    "watch": "webpack --watch"
+    "start": "webpack-dev-server --config webpack.dev.js --open",
+    "build": "webpack --config webpack.prod.js"
   },
   "repository": {
     "type": "git",
@@ -15,7 +13,7 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/expjazz/toDOList/issues"
   },
@@ -31,5 +29,8 @@
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0",
     "webpack-merge": "^5.0.3"
+  },
+  "dependencies": {
+    "missing": "0.0.1"
   }
 }
