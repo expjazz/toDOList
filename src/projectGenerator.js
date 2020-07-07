@@ -2,6 +2,8 @@ import ui from './title';
 import list from './projectList';
 import elements from './elements';
 import titleGenerator from './title';
+import input from './input';
+import helpers from './helpers';
 
 const projectGenerator = (projects) => {
   const { appendContent } = elements.ele();
@@ -14,7 +16,8 @@ const projectGenerator = (projects) => {
   ul.innerHTML = list.projectList(projects);
   projectContainer.appendChild(title);
   projectContainer.appendChild(ul);
-
+  projectContainer.appendChild(input.input('project'));
+  projectContainer.addEventListener('keydown', helpers.createNewProject);
   appendContent.appendChild(projectContainer);
 };
 
