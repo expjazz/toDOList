@@ -1,6 +1,7 @@
 
 const createNewProject = (e) => {
-  console.log(e.target.value);
+  e.preventDefault();
+  console.log(e.target.querySelector('input').value);
 };
 
 export default { createNewProject };
