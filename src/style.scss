@@ -1,1 +1,13 @@
 @import "~bootstrap/scss/bootstrap";
+
+form {
+  transition: all 1s;
+}
+
+.inactive {
+  opacity: 0;
+}
+
+.active {
+  opacity: 1;
+}

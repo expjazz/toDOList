@@ -2,7 +2,7 @@ import ui from './helperTags';
 import list from './projectList';
 import elements from './elements';
 import titleGenerator from './helperTags';
-import input from './form';
+import form from './form';
 import helpers from './helpers';
 import btn from './addBtn';
 
@@ -20,13 +20,14 @@ const projectGenerator = (projects) => {
 
   projectContainer.appendChild(title);
   projectContainer.appendChild(ul);
-  projectContainer.appendChild(input.input('projectForm'));
+  projectContainer.appendChild(form.form('projectForm'));
 
 
-  projectContainer.addEventListener('submit', helpers.createNewProject);
   appendContent.appendChild(projectContainer);
-  titleGenerator.projectFormInputs();
   projectContainer.appendChild(btn.addBtn);
+  titleGenerator.projectFormInputs();
+  projectContainer.addEventListener('submit', helpers.createNewProject);
+  btn.addBtn.addEventListener('click', helpers.displayForm);
 };
 
 export default { projectGenerator };
