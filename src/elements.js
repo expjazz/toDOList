@@ -6,6 +6,7 @@ const ele = () => ({
   itemContainer: document.getElementById('itemContainer'),
   itemForm: document.getElementById('itemForm'),
   itemsTable: document.querySelector('.table'),
+  itemNote: document.getElementById('itemNote'),
 });
 
 export default { ele };

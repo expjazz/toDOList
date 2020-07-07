@@ -7,6 +7,7 @@ import showList from './toDoListGenerator';
 import input from './input';
 import btn from './addBtn';
 import Item from './item';
+import itNote from './itemNote';
 
 const createNewProject = (e) => {
   e.preventDefault();
@@ -15,7 +16,7 @@ const createNewProject = (e) => {
 // display Form
 const displayForm = (e) => {
   console.log(e.target);
-  const form = e.target.parentElement.children[2];
+  const form = e.target.parentElement.querySelector('form');
   form.classList.toggle('d-none');
 
   setTimeout(() => form.classList.toggle('inactive'), 150);
@@ -46,11 +47,6 @@ const addNewProject = (e) => {
 const showListItem = (e) => {
   const x = projects.projects.find((project) => project.title === e.target.innerText);
   showList.toDoItem(x.items);
-  console.log(x);
-};
-
-const addNewItem = (e) => {
-  console.log(e.target);
 };
 
 const populateItemForm = (itemForm) => {
@@ -63,7 +59,7 @@ const populateItemForm = (itemForm) => {
 
 
   const submitBtn = btn.addBtn('Create item');
-  itemForm.addEventListener('click', addNewItem);
+  itemForm.addEventListener('submit', submitItemForm);
   itemForm.innerHTML = itemTitle + itemDescription + itemDueDate + itemPriority + itemNotes + itemChecklist;
   itemForm.appendChild(submitBtn);
 };
@@ -75,10 +71,13 @@ const populateItemsTable = (item) => {
     <td>${item.title}</td>
     <td>${item.description}</td>
     <td>${item.dueDate}</td>
-    <td>${item.prioriry}</td>
-    <td>${item.notes}</td>
-    <td>${item.checklist}</td>
+    <td>${item.priority}</td>
+    <td id="itemNote">${item.notes}</td>
+    <td>${item.checkList}</td>
   </tr>`;
+  const { itemNote } = elements.ele();
+  console.log(itemNote);
+  itemNote.addEventListener('click', itNote.itNote);
 };
 
 const submitItemForm = (e) => {
@@ -94,10 +93,7 @@ const submitItemForm = (e) => {
   populateItemsTable(newItem);
 };
 
-const showItemForm = (e) => {
-  console.log(e.value);
-};
 
 export default {
-  createNewProject, displayForm, addNewProject, populateProjectList, showListItem, populateItemForm, showItemForm,
+  createNewProject, displayForm, addNewProject, populateProjectList, showListItem, populateItemForm, submitItemForm,
 };
