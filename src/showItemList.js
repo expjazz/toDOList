@@ -34,4 +34,7 @@ const itemList = `
   </tr>
 </tbody>
 </table>
-${addBtn.addBtn('Add Todo Items', '<i class="fas fa-plus"></i>')}`;
+`;
+
+
+export default { itemList };

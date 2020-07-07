@@ -3,6 +3,7 @@ import elements from './elements';
 import Project from './project';
 import projects from './logic';
 import projectsList from './projectList';
+import showList from './toDoListGenerator';
 
 const createNewProject = (e) => {
   e.preventDefault();
@@ -40,7 +41,7 @@ const addNewProject = (e) => {
 
 // show list item on the right
 const showListItem = (e) => {
-  console.log(e.target);
+  showList.toDoItem();
 };
 
 
