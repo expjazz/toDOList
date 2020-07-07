@@ -15,7 +15,6 @@ const createNewProject = (e) => {
 
 // display Form
 const displayForm = (e) => {
-  console.log(e.target);
   const form = e.target.parentElement.querySelector('form');
   form.classList.toggle('d-none');
 
@@ -69,7 +68,6 @@ const populateItemsTable = (item, index) => {
   const { itemsTable } = elements.ele();
   const project = projects.projects[index];
   project.items.push(item);
-  console.log(projects.projects);
   itemsTable.querySelector('tbody').innerHTML += `<tr>
     <th scope="row">1</th>
     <td>${item.title}</td>
@@ -80,7 +78,6 @@ const populateItemsTable = (item, index) => {
     <td>${item.checkList}</td>
   </tr>`;
   const { itemNote } = elements.ele();
-  console.log(itemNote);
   itemNote.addEventListener('click', itNote.itNote);
 };
 
@@ -95,7 +92,6 @@ const submitItemForm = (e) => {
   });
 
   const { index } = form.parentElement.children[0].dataset;
-  console.log(index);
 
   const newItem = Item.Item(...inputValues);
   populateItemsTable(newItem, index);
