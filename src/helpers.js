@@ -5,6 +5,8 @@ import projects from './logic';
 import projectsList from './projectList';
 import showList from './toDoListGenerator';
 import input from './input';
+import btn from './addBtn';
+import Item from './item';
 
 const createNewProject = (e) => {
   e.preventDefault();
@@ -51,9 +53,7 @@ const addNewItem = (e) => {
   console.log(e.target);
 };
 
-const populateItemForm = () => {
-  const { itemForm } = elements.ele();
-
+const populateItemForm = (itemForm) => {
   const itemTitle = input.input('title');
   const itemDescription = input.input('description');
   const itemDueDate = input.input('dueDate');
@@ -63,16 +63,41 @@ const populateItemForm = () => {
 
 
   const submitBtn = btn.addBtn('Create item');
-  itemForm.addEventListener('submit', addNewItem);
+  itemForm.addEventListener('click', addNewItem);
   itemForm.innerHTML = itemTitle + itemDescription + itemDueDate + itemPriority + itemNotes + itemChecklist;
   itemForm.appendChild(submitBtn);
 };
 
-const showItemForm = () => {
-
+const populateItemsTable = (item) => {
+  const { itemsTable } = elements.ele();
+  itemsTable.querySelector('tbody').innerHTML += `<tr>
+    <th scope="row">1</th>
+    <td>${item.title}</td>
+    <td>${item.description}</td>
+    <td>${item.dueDate}</td>
+    <td>${item.prioriry}</td>
+    <td>${item.notes}</td>
+    <td>${item.checklist}</td>
+  </tr>`;
 };
 
+const submitItemForm = (e) => {
+  e.preventDefault();
+
+  const inputValues = [];
+  const form = e.target;
+
+  form.querySelectorAll('input').forEach((input) => {
+    inputValues.push(input.value);
+  });
+  const newItem = Item.Item(...inputValues);
+  populateItemsTable(newItem);
+};
+
+const showItemForm = (e) => {
+  console.log(e.value);
+};
 
 export default {
-  createNewProject, displayForm, addNewProject, populateProjectList, showListItem, populateItemForm,
+  createNewProject, displayForm, addNewProject, populateProjectList, showListItem, populateItemForm, showItemForm,
 };

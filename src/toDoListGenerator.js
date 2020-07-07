@@ -1,7 +1,9 @@
+/* eslint-disable import/no-cycle */
 import elements from './elements';
 import showItemList from './showItemList';
 import addBtn from './addBtn';
 import form from './form';
+import helper from './helpers';
 
 const toDoItem = (items) => {
   const { appendContent, itemContainer } = elements.ele();
@@ -22,7 +24,6 @@ const toDoItem = (items) => {
   } else {
     itemContainer.innerHTML = showItemList.itemList(items);
     itemContainer.append(itemForm);
-    itemContainer.append(addBtn.addBtn('Add Todo Items', '<i class="fas fa-plus"></i>'));
     const itemFormBtn = addBtn.addBtn('Add Todo Items', '<i class="fas fa-plus"></i>');
     itemContainer.append(itemFormBtn);
     itemFormBtn.addEventListener('click', helper.showItemForm);
