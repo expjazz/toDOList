@@ -46,7 +46,8 @@ const addNewProject = (e) => {
 // show list item on the right
 const showListItem = (e) => {
   const x = projects.projects.find((project) => project.title === e.target.innerText);
-  showList.toDoItem(x.items);
+  const index = projects.projects.indexOf(x);
+  showList.toDoItem(x.items, index);
 };
 
 const populateItemForm = (itemForm) => {
@@ -64,8 +65,11 @@ const populateItemForm = (itemForm) => {
   itemForm.appendChild(submitBtn);
 };
 
-const populateItemsTable = (item) => {
+const populateItemsTable = (item, index) => {
   const { itemsTable } = elements.ele();
+  const project = projects.projects[index];
+  project.items.push(item);
+  console.log(projects.projects);
   itemsTable.querySelector('tbody').innerHTML += `<tr>
     <th scope="row">1</th>
     <td>${item.title}</td>
@@ -89,8 +93,12 @@ const submitItemForm = (e) => {
   form.querySelectorAll('input').forEach((input) => {
     inputValues.push(input.value);
   });
+
+  const { index } = form.parentElement.children[0].dataset;
+  console.log(index);
+
   const newItem = Item.Item(...inputValues);
-  populateItemsTable(newItem);
+  populateItemsTable(newItem, index);
 };
 
 

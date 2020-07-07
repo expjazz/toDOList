@@ -1,9 +1,9 @@
 import addBtn from './addBtn';
 import form from './form';
 
-const itemList = (items) => {
+const itemList = (items, number) => {
   let count = 0; return `
-<table class="table">
+<table class="table" data-index='${number}'>
 <thead>
   <tr>
     <th scope="col">#</th>
