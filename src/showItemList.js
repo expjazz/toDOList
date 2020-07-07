@@ -1,6 +1,8 @@
 import addBtn from './addBtn';
+import form from './form';
 
-const itemList = `
+const itemList = (items) => {
+  let count = 0; return `
 <table class="table">
 <thead>
   <tr>
@@ -14,27 +16,21 @@ const itemList = `
   </tr>
 </thead>
 <tbody>
-  <tr>
-    <th scope="row">1</th>
-    <td>Mark</td>
-    <td>Otto</td>
-    <td>@mdo</td>
-  </tr>
-  <tr>
-    <th scope="row">2</th>
-    <td>Jacob</td>
-    <td>Thornton</td>
-    <td>@fat</td>
-  </tr>
-  <tr>
-    <th scope="row">3</th>
-    <td>Larry</td>
-    <td>the Bird</td>
-    <td>@twitter</td>
-  </tr>
+  ${items.map((item) => {
+    count += 1;
+    return `<tr>
+    <th scope="row">${count}</th>
+    <td>${item.title}</td>
+    <td>${item.description}</td>
+    <td>${item.dueDate}</td>
+    <td>${item.prioriry}</td>
+    <td>${item.notes}</td>
+    <td>${item.checklist}</td>
+  </tr>`;
+  }).join('')
+}
+
 </tbody>
-</table>
-`;
-
-
+</table> `;
+};
 export default { itemList };

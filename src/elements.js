@@ -3,6 +3,8 @@ const ele = () => ({
   appendContent: document.getElementById('appendContent'),
   projectForm: document.getElementById('projectForm'),
   projectUl: document.getElementById('projectList'),
+  itemContainer: document.getElementById('itemContainer'),
+  itemForm: document.getElementById('itemForm'),
 });
 
 export default { ele };

@@ -1,5 +1,5 @@
 /* eslint-disable import/no-cycle */
-import elem from './elements';
+import elements from './elements';
 import input from './input';
 import btn from './addBtn';
 import helpers from './helpers';
@@ -18,7 +18,7 @@ const description = (projectDescription) => {
 
 
 const projectFormInputs = () => {
-  const { projectForm } = elem.ele();
+  const { projectForm } = elements.ele();
 
   const projectTitle = input.input('title');
   const projectDescription = input.input('description');

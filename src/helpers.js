@@ -4,6 +4,7 @@ import Project from './project';
 import projects from './logic';
 import projectsList from './projectList';
 import showList from './toDoListGenerator';
+import input from './input';
 
 const createNewProject = (e) => {
   e.preventDefault();
@@ -41,10 +42,37 @@ const addNewProject = (e) => {
 
 // show list item on the right
 const showListItem = (e) => {
-  showList.toDoItem();
+  const x = projects.projects.find((project) => project.title === e.target.innerText);
+  showList.toDoItem(x.items);
+  console.log(x);
+};
+
+const addNewItem = (e) => {
+  console.log(e.target);
+};
+
+const populateItemForm = () => {
+  const { itemForm } = elements.ele();
+
+  const itemTitle = input.input('title');
+  const itemDescription = input.input('description');
+  const itemDueDate = input.input('dueDate');
+  const itemPriority = input.input('priority');
+  const itemNotes = input.input('notes');
+  const itemChecklist = input.input('checkList');
+
+
+  const submitBtn = btn.addBtn('Create item');
+  itemForm.addEventListener('submit', addNewItem);
+  itemForm.innerHTML = itemTitle + itemDescription + itemDueDate + itemPriority + itemNotes + itemChecklist;
+  itemForm.appendChild(submitBtn);
+};
+
+const showItemForm = () => {
+
 };
 
 
 export default {
-  createNewProject, displayForm, addNewProject, populateProjectList, showListItem,
+  createNewProject, displayForm, addNewProject, populateProjectList, showListItem, populateItemForm,
 };
