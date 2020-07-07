@@ -1,9 +1,10 @@
-import ui from './title';
+import ui from './helperTags';
 import list from './projectList';
 import elements from './elements';
-import titleGenerator from './title';
+import titleGenerator from './helperTags';
 import input from './form';
 import helpers from './helpers';
+import btn from './addBtn';
 
 
 const projectGenerator = (projects) => {
@@ -25,6 +26,7 @@ const projectGenerator = (projects) => {
   projectContainer.addEventListener('submit', helpers.createNewProject);
   appendContent.appendChild(projectContainer);
   titleGenerator.projectFormInputs();
+  projectContainer.appendChild(btn.addBtn);
 };
 
 export default { projectGenerator };
