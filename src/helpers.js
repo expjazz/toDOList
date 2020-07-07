@@ -4,7 +4,6 @@ import Project from './project';
 
 const createNewProject = (e) => {
   e.preventDefault();
-  console.log(e.target.querySelector('input').value);
 };
 
 const displayForm = (e) => {
@@ -15,16 +14,16 @@ const displayForm = (e) => {
   setTimeout(() => form.classList.toggle('inactive'), 150);
 };
 
+// this creates a project object
 const addNewProject = (e) => {
   e.preventDefault();
 
   const inputValues = [];
-  const form = e.target.parentElement;
+  const form = e.target;
 
   form.querySelectorAll('input').forEach((input) => {
     inputValues.push(input.value);
   });
   const newProject = Project.Project(...inputValues);
-  console.log(newProject);
 };
 export default { createNewProject, displayForm, addNewProject };

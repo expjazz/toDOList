@@ -16,6 +16,7 @@ const projectGenerator = (projects) => {
 
   ul.classList = 'd-flex justify-content-center flex-column';
   ul.innerHTML = list.projectList(projects);
+  ul.id = 'projectList';
 
   projectContainer.appendChild(title);
   projectContainer.appendChild(ul);

@@ -23,7 +23,7 @@ const projectFormInputs = () => {
   const projectDescription = input.input('description');
   const projectDate = input.input('date');
   const submitBtn = btn.addBtn('Create Project');
-  submitBtn.addEventListener('click', helpers.addNewProject);
+  projectForm.addEventListener('submit', helpers.addNewProject);
   projectForm.innerHTML = projectTitle + projectDescription + projectDate;
   projectForm.appendChild(submitBtn);
 };
