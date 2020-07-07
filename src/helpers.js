@@ -1,6 +1,7 @@
 import elements from './elements';
 import Project from './project';
-
+import projects from './logic';
+import projectsList from './projectList';
 
 const createNewProject = (e) => {
   e.preventDefault();
@@ -14,6 +15,13 @@ const displayForm = (e) => {
   setTimeout(() => form.classList.toggle('inactive'), 150);
 };
 
+// populate project list
+const populateProjectList = (project) => {
+  const { projectUl } = elements.ele();
+  projects.projects.push(project);
+  projectUl.innerHTML = projectsList.projectList(projects.projects);
+};
+
 // this creates a project object
 const addNewProject = (e) => {
   e.preventDefault();
@@ -25,5 +33,10 @@ const addNewProject = (e) => {
     inputValues.push(input.value);
   });
   const newProject = Project.Project(...inputValues);
+  populateProjectList(newProject);
 };
-export default { createNewProject, displayForm, addNewProject };
+
+
+export default {
+  createNewProject, displayForm, addNewProject, populateProjectList,
+};
