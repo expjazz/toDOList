@@ -1,4 +1,3 @@
-import ui from './helperTags';
 import list from './projectList';
 import elements from './elements';
 import titleGenerator from './helperTags';
@@ -24,10 +23,11 @@ const projectGenerator = (projects) => {
 
 
   appendContent.appendChild(projectContainer);
-  projectContainer.appendChild(btn.addBtn);
+  const showFormBtn = btn.addBtn(null, '<i class="fas fa-plus"></i>');
+  projectContainer.appendChild(showFormBtn);
   titleGenerator.projectFormInputs();
   projectContainer.addEventListener('submit', helpers.createNewProject);
-  btn.addBtn.addEventListener('click', helpers.displayForm);
+  showFormBtn.addEventListener('click', helpers.displayForm);
 };
 
 export default { projectGenerator };

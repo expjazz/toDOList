@@ -1,4 +1,5 @@
 import elements from './elements';
+import Project from './project';
 
 
 const createNewProject = (e) => {
@@ -13,4 +14,17 @@ const displayForm = (e) => {
 
   setTimeout(() => form.classList.toggle('inactive'), 150);
 };
-export default { createNewProject, displayForm };
+
+const addNewProject = (e) => {
+  e.preventDefault();
+
+  const inputValues = [];
+  const form = e.target.parentElement;
+
+  form.querySelectorAll('input').forEach((input) => {
+    inputValues.push(input.value);
+  });
+  const newProject = Project.Project(...inputValues);
+  console.log(newProject);
+};
+export default { createNewProject, displayForm, addNewProject };

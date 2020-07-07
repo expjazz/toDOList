@@ -1,5 +1,7 @@
 import elem from './elements';
 import input from './input';
+import btn from './addBtn';
+import helpers from './helpers';
 
 const title = (titleContent) => {
   const title = document.createElement('h1');
@@ -20,8 +22,10 @@ const projectFormInputs = () => {
   const projectTitle = input.input('title');
   const projectDescription = input.input('description');
   const projectDate = input.input('date');
-
+  const submitBtn = btn.addBtn('Create Project');
+  submitBtn.addEventListener('click', helpers.addNewProject);
   projectForm.innerHTML = projectTitle + projectDescription + projectDate;
+  projectForm.appendChild(submitBtn);
 };
 
 export default { projectFormInputs, title };
