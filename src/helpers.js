@@ -38,7 +38,12 @@ const addNewProject = (e) => {
   populateProjectList(newProject);
 };
 
+// show list item on the right
+const showListItem = (e) => {
+  console.log(e.target);
+};
+
 
 export default {
-  createNewProject, displayForm, addNewProject, populateProjectList,
+  createNewProject, displayForm, addNewProject, populateProjectList, showListItem,
 };

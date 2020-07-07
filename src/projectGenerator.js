@@ -14,6 +14,8 @@ const projectGenerator = (projects) => {
   const ul = document.createElement('ul');
   const title = titleGenerator.title('Projects');
 
+  ul.addEventListener('click', helpers.showListItem);
+
   ul.classList = 'd-flex justify-content-center flex-column';
   ul.innerHTML = list.projectList(projects);
   ul.id = 'projectList';

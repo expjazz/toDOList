@@ -1,7 +1,7 @@
 const Item = (title, dueDate, description, priority, notes = '', checkList = '') => ({
   title,
-  dueDate,
   description,
+  dueDate,
   priority,
   notes,
   checkList,
