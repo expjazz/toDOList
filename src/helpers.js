@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import elements from './elements';
 import Project from './project';
 import projects from './logic';
@@ -7,6 +8,7 @@ const createNewProject = (e) => {
   e.preventDefault();
 };
 
+// display Form
 const displayForm = (e) => {
   console.log(e.target);
   const form = e.target.parentElement.children[2];

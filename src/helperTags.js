@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import elem from './elements';
 import input from './input';
 import btn from './addBtn';
