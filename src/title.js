@@ -13,19 +13,21 @@ const description = (projectDescription) => {
   return desc;
 };
 
-const addBtn = document.createElement('button');
-addBtn.classList.add = 'btn-primary';
-
 
 const projectFormInputs = () => {
   const { projectForm } = elem.ele();
 
   const projectTitle = input.input('title');
-  console.log(projectTitle);
   const projectDescription = input.input('description');
   const projectDate = input.input('date');
 
+  const addBtn = document.createElement('button');
+  addBtn.classList = 'btn btn-dark w-25 py-3';
+  addBtn.innerHTML = '<i class="fas fa-plus"></i>';
+  addBtn.type = 'submit';
+
   projectForm.innerHTML = projectTitle + projectDescription + projectDate;
+  projectForm.appendChild(addBtn);
 };
 
 export default { projectFormInputs, title };
