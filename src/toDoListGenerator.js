@@ -27,13 +27,6 @@ const toDoItem = (items, index) => {
   const itemFormBtn = addBtn.addBtn('Add Todo Items', '<i class="fas fa-plus"></i>');
   firstItemContainer.append(itemFormBtn);
   itemFormBtn.addEventListener('click', helper.displayForm);
-  // } else {
-  //   itemContainer.innerHTML = showItemList.itemList(items, index);
-  //   itemContainer.append(itemForm);
-  //   const itemFormBtn = addBtn.addBtn('Add Todo Items', '<i class="fas fa-plus"></i>');
-  //   itemContainer.append(itemFormBtn);
-  //   itemFormBtn.addEventListener('click', helper.showItemForm);
-  // }
 };
 
 export default { toDoItem };

@@ -17,7 +17,6 @@ const createNewProject = (e) => {
 // display Form
 const displayForm = (e) => {
   const form = e.target.parentElement.querySelector('form') || document.getElementById('itemForm');
-  console.log(form);
   form.classList.toggle('d-none');
 
   setTimeout(() => form.classList.toggle('inactive'), 150);
@@ -70,6 +69,8 @@ const deleteTask = (index, project, count) => {
   const tempList = project.items.filter((item) => item !== project.items[count - 1]);
   showList.toDoItem(project.items, count, true);
   project.items = tempList;
+  showList.toDoItem(project.items, index);
+  console.log(project);
   console.log(projects.projects);
 };
 
