@@ -4,18 +4,9 @@ import projectList from './projectList';
 import generator from './projectGenerator';
 import pageGen from './mainFile';
 
-const projects = [];
+const projects = JSON.parse(localStorage.getItem('Projects')) || [];
 
 const run = () => {
-  const createToDoWebsite = Project.Project('createToDoWebsite', 'project from Microverse', '07/09');
-  const createToDoWebsite2 = Project.Project('jazzTrio', 'LiveSession', '08/09');
-  // const navbar = Item.Item('navbar', '07/09', 'create the navbar', 5);
-  // const mainContainer = document.querySelector('.container');
-  projects.push(createToDoWebsite);
-  projects.push(createToDoWebsite2);
-
-  // createToDoWebsite.items.push(navbar);
-  // console.log(createToDoWebsite);
   pageGen.mainPage();
   generator.projectGenerator(projects);
 };

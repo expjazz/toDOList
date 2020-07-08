@@ -9,7 +9,6 @@ import input from './input';
 import btn from './addBtn';
 import Item from './item';
 import itNote from './itemNote';
-import list from './showItemList';
 
 const createNewProject = (e) => {
   e.preventDefault();
@@ -24,29 +23,21 @@ const displayForm = (e) => {
 };
 
 const deleteProject = (e) => {
-  let projectTitle;
-  console.log(e.target.tagName);
-  if (e.target.tagName === 'BUTTON') projectTitle = e.target.parentElement.innerText;
-  if (e.target.tagName === 'I') projectTitle = e.target.parentElement.parentElement.innerText;
-  if (e.target.target === 'LI') projectTitle = e.target.innerText;
+  const projectTitle = e.target.dataset.title;
 
-  const newProjects = projects.projects.filter((proj) => {
-    console.log(proj.title !== projectTitle);
-    console.log(projectTitle);
-    console.log(proj.title);
-    return proj.title !== projectTitle;
-  });
+  const newProjects = projects.projects.filter((proj) => proj.title !== projectTitle);
   projects.projects = newProjects;
-  console.log(projectTitle);
+  populateProjectList();
 };
 // populate project list
-const populateProjectList = (project) => {
+const populateProjectList = (project = null) => {
   const { projectUl } = elements.ele();
-  projects.projects.push(project);
+  if (project !== null) projects.projects.push(project);
   projectUl.innerHTML = projectsList.projectList(projects.projects);
   projectUl.querySelectorAll('button').forEach((btn) => {
     btn.addEventListener('click', deleteProject);
   });
+  localStorage.setItem('Projects', JSON.stringify(projects.projects));
 };
 
 // this creates a project object
