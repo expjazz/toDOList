@@ -8,6 +8,7 @@ import input from './input';
 import btn from './addBtn';
 import Item from './item';
 import itNote from './itemNote';
+import list from './showItemList';
 
 const createNewProject = (e) => {
   e.preventDefault();
@@ -64,6 +65,12 @@ const populateItemForm = (itemForm) => {
   itemForm.appendChild(submitBtn);
 };
 
+const deleteTask = (index, project, count) => {
+  const whatever = project.items.filter((item) => item !== project.items[count - 1]);
+  console.log(whatever);
+  showList.toDoItem(project.items, count, true);
+};
+
 
 const populateItemsTable = (item, index) => {
   const { itemsTable } = elements.ele();
@@ -78,9 +85,17 @@ const populateItemsTable = (item, index) => {
     <td>${item.priority}</td>
     <td id="${count}itemNote">${item.notes}</td>
     <td>${item.checkList}</td>
+    <td><button class="btn btn-danger" id="${count}-deleteBtn"><i class="fas fa-trash"></i></button></td>
   </tr>`;
   const itemNote = document.getElementById(`${count}itemNote`);
   itemNote.addEventListener('click', itNote.itNote);
+  itemsTable.querySelectorAll('button').forEach((btn) => {
+    const { id } = btn;
+    console.log(id.split('-'));
+    const indexItem = id.split('-')[0];
+    console.log(indexItem);
+    btn.addEventListener('click', (e) => { deleteTask(index, project, indexItem); });
+  });
 };
 
 const submitItemForm = (e) => {
@@ -97,6 +112,7 @@ const submitItemForm = (e) => {
 
   const newItem = Item.Item(...inputValues);
   populateItemsTable(newItem, index);
+  displayForm(e);
 };
 
 

@@ -5,13 +5,12 @@ import addBtn from './addBtn';
 import form from './form';
 import helper from './helpers';
 
-const toDoItem = (items, index) => {
+const toDoItem = (items, index, deleteItem = false) => {
   const { appendContent, itemContainer } = elements.ele();
   const itemForm = form.form('itemForm');
   helper.populateItemForm(itemForm);
-  if (!document.getElementById('itemContainer')) {
+  if (!document.getElementById('itemContainer') || deleteItem === true) {
     const firstItemContainer = document.createElement('div');
-
     firstItemContainer.classList = 'col-7';
     firstItemContainer.id = 'itemContainer';
     appendContent.appendChild(firstItemContainer);
