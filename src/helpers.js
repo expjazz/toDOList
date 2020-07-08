@@ -16,14 +16,7 @@ const createNewProject = (e) => {
 
 // display Form
 const displayForm = (e) => {
-  let form;
-  if (e.target.tagName === 'DIV') {
-    form = e.target.parentElement.querySelector('form') || document.getElementById('itemForm');
-  } else if (e.target.tagName === 'I') {
-    form = e.target.parentElement.parentElement.parentElement.querySelector('form');
-  } else {
-    form = e.target.parentElement.parentElement.querySelector('form');
-  }
+  const form = document.getElementById('projectForm');
   form.classList.toggle('d-none');
   setTimeout(() => form.classList.toggle('inactive'), 150);
 };
@@ -101,7 +94,7 @@ const submitItemForm = (e) => {
 
   const newItem = Item.Item(...inputValues);
   populateItemsTable(newItem, index);
-  displayForm(e);
+  displayForm2(e);
 };
 
 const populateItemForm = (itemForm) => {
