@@ -23,11 +23,30 @@ const displayForm = (e) => {
   setTimeout(() => form.classList.toggle('inactive'), 150);
 };
 
+const deleteProject = (e) => {
+  let projectTitle;
+  console.log(e.target.tagName);
+  if (e.target.tagName === 'BUTTON') projectTitle = e.target.parentElement.innerText;
+  if (e.target.tagName === 'I') projectTitle = e.target.parentElement.parentElement.innerText;
+  if (e.target.target === 'LI') projectTitle = e.target.innerText;
+
+  const newProjects = projects.projects.filter((proj) => {
+    console.log(proj.title !== projectTitle);
+    console.log(projectTitle);
+    console.log(proj.title);
+    return proj.title !== projectTitle;
+  });
+  projects.projects = newProjects;
+  console.log(projectTitle);
+};
 // populate project list
 const populateProjectList = (project) => {
   const { projectUl } = elements.ele();
   projects.projects.push(project);
   projectUl.innerHTML = projectsList.projectList(projects.projects);
+  projectUl.querySelectorAll('button').forEach((btn) => {
+    btn.addEventListener('click', deleteProject);
+  });
 };
 
 // this creates a project object
@@ -46,9 +65,15 @@ const addNewProject = (e) => {
 
 // show list item on the right
 const showListItem = (e) => {
-  const x = projects.projects.find((project) => project.title === e.target.innerText);
-  const index = projects.projects.indexOf(x);
-  showList.toDoItem(x.items, index);
+  if (e.target.tagName === 'LI') {
+    const y = e.target;
+    const btn = e.target.querySelector('button');
+    y.removeChild(btn);
+    const x = projects.projects.find((project) => project.title === y.innerText);
+    y.appendChild(btn);
+    const index = projects.projects.indexOf(x);
+    showList.toDoItem(x.items, index);
+  }
 };
 
 const submitItemForm = (e) => {
