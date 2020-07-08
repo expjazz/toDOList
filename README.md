@@ -4,7 +4,7 @@ This is a simple website where you can keep track of the tasks you need to do. Y
 
 ### Screenshots
 
-Intro Page
+![Main page](./screenshot1.png)
 
 ### FEATURES
 
