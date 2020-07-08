@@ -1,15 +1,10 @@
 # Project Todo List - Javascript
 
+This is a simple website where you can keep track of the tasks you need to do. You can group the tasks by a Project.
+
 ### Screenshots
 
 Intro Page
-<img width="1216" alt="Screenshot 2020-06-30 at 2 00 38 PM" src="https://user-images.githubusercontent.com/50610396/86118945-4581e900-bada-11ea-838c-bacc3732f22e.png">
-
-Gameplay
-<img width="1211" alt="Screenshot 2020-06-30 at 2 00 58 PM" src="https://user-images.githubusercontent.com/50610396/86118979-56caf580-bada-11ea-86a0-dd9a26e75ec9.png">
-
-Result Page
-<img width="1212" alt="Screenshot 2020-06-30 at 2 01 10 PM" src="https://user-images.githubusercontent.com/50610396/86118892-2e42fb80-bada-11ea-9fa9-104cbfad3ca5.png">
 
 ### FEATURES
 
@@ -23,12 +18,14 @@ You can register lists of tasks to do, and each list can have many tasks. You ca
 
 ### LIVE VERSION
 
-- [GitHack](https://raw.githack.com/mariosknl/tic_tac_toe_javascript/feature_v1/index.html)
+- [GitHack](https://raw.githack.com/expjazz/toDOList/featureV1/dist/index.html)
 
 ### SETUP
 
-- `git@github.com:mariosknl/tic_tac_toe_javascript.git`
-- `open the index.html`
+- `git@github.com:expjazz/toDOList.git`
+- `run npm install on the root folder`
+- `open the index.html on the dist folder inside the root`
+- `To open in the development mode, type npm start on the terminal`
 
 ### AUTHORS
 
@@ -43,7 +40,7 @@ You can register lists of tasks to do, and each list can have many tasks. You ca
 
 - Github: [@githubexpjazz](https://github.com/expjazz)
 - Twitter: [@expjazz](https://twitter.com/expeditoandrade13)
-- Linkedin: [Expedito Andrade](https://www.linkedin.com/in/expedito-andrade-3645151a4/)
+- Linkedin: [Expedito Andrade](https://www.linkedin.com/in/expedito-andrade/)
 - Portfolio: [Expedito Andrade](https://expjazz.github.io/expedito_andrade/)
 
 ### Show your support
