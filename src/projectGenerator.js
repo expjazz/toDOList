@@ -1,3 +1,4 @@
+/* eslint-disable import/no-cycle */
 import list from './projectList';
 import elements from './elements';
 import titleGenerator from './helperTags';
@@ -13,6 +14,7 @@ const projectGenerator = (projects) => {
   projectContainer.classList = 'col-5';
   const ul = document.createElement('ul');
   const title = titleGenerator.title('Projects');
+
 
   ul.addEventListener('click', helpers.showListItem);
 
@@ -31,6 +33,10 @@ const projectGenerator = (projects) => {
   titleGenerator.projectFormInputs();
   projectContainer.addEventListener('submit', helpers.createNewProject);
   showFormBtn.addEventListener('click', helpers.displayForm);
+  const btns = ul.querySelectorAll('button');
+  btns.forEach((btn) => {
+    btn.addEventListener('click', helpers.deleteProject);
+  });
 };
 
 export default { projectGenerator };

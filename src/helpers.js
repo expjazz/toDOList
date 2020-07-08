@@ -23,6 +23,7 @@ const displayForm = (e) => {
 };
 
 const deleteProject = (e) => {
+  console.log('object');
   const projectTitle = e.target.dataset.title;
 
   const newProjects = projects.projects.filter((proj) => proj.title !== projectTitle);
@@ -134,5 +135,5 @@ const populateItemsTable = (item, index) => {
 
 
 export default {
-  createNewProject, displayForm, addNewProject, populateProjectList, showListItem, populateItemForm, submitItemForm, deleteTask,
+  createNewProject, displayForm, addNewProject, populateProjectList, showListItem, populateItemForm, submitItemForm, deleteTask, deleteProject,
 };
