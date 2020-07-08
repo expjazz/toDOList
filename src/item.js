@@ -1,4 +1,4 @@
-const Item = (title, dueDate, description, priority, notes = '', checkList = '', id = null) => ({
+const Item = (title, description, dueDate, priority, notes = '', checkList = '', id = null) => ({
   title,
   description,
   dueDate,

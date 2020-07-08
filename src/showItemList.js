@@ -25,6 +25,7 @@ const itemList = (items, number) => {
     <td class='dueDate'>${item.dueDate}</td>
     <td class='priority'>${item.priority}</td>
     <td id="${count}itemNote" class='notes'>${item.notes}</td>
+    <td class='checkList'>${item.checkList}</td>
 
     <td class='checkList'>${item.checkList}</td>
     <td><button class="btn btn-danger" id="${count}-deleteBtn"><i class="fas fa-trash"></i></button></td>

@@ -2,10 +2,9 @@
 import elements from './elements';
 import projects from './logic';
 
-const updateItem = (item, value, index, note) => {
-  console.log(item);
+const updateItem = (item, whatever, value, index, note) => {
   item[note] = value.target.value;
-  const itemNote = document.querySelector(`.${note}`);
+  const itemNote = whatever.target;
   const { mainContainer } = elements.ele();
   if (value.key === 'Enter') {
     itemNote.innerText = value.target.value;
@@ -24,12 +23,12 @@ const itNote = (e) => {
   const notesPopUp = document.createElement('input');
   notesPopUp.id = 'itNote';
   notesPopUp.value = e.target.innerText;
-
+  const whatever = e;
   notesPopUp.classList = 'textarea';
   mainContainer.parentElement.appendChild(notesPopUp);
   const items = projects.projects[projectIndex].items[index - 1];
   notesPopUp.addEventListener('keydown', (e) => {
-    updateItem(items, e, index, e.target.classList);
+    updateItem(items, whatever, e, index, whatever.target.classList[0]);
   });
 };
 
@@ -40,7 +39,7 @@ const editEventListeners = () => {
     if (index !== 0) {
       const allFields = row.querySelectorAll('td');
       allFields.forEach((field, index) => {
-        field.addEventListener('click', itNote);
+        if (index < allFields.length - 1) { field.addEventListener('click', itNote); }
       });
     }
   });
