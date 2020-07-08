@@ -20,12 +20,13 @@ const itemList = (items, number) => {
     count += 1;
     return `<tr>
     <th scope="row">${count}</th>
-    <td>${item.title}</td>
-    <td>${item.description}</td>
-    <td>${item.dueDate}</td>
-    <td>${item.prioriry}</td>
-    <td id="${count}Note">${item.notes}</td>
-    <td>${item.checklist}</td>
+    <td class='title'>${item.title}</td>
+    <td class='description'>${item.description}</td>
+    <td class='dueDate'>${item.dueDate}</td>
+    <td class='priority'>${item.priority}</td>
+    <td id="${count}itemNote" class='notes'>${item.notes}</td>
+
+    <td class='checkList'>${item.checkList}</td>
     <td><button class="btn btn-danger" id="${count}-deleteBtn"><i class="fas fa-trash"></i></button></td>
 
   </tr>`;

@@ -2,9 +2,10 @@
 import elements from './elements';
 import projects from './logic';
 
-const updateItem = (item, value, index) => {
-  item.note = value.target.value;
-  const itemNote = document.getElementById(`${index}itemNote`);
+const updateItem = (item, value, index, note) => {
+  console.log(item);
+  item[note] = value.target.value;
+  const itemNote = document.querySelector(`.${note}`);
   const { mainContainer } = elements.ele();
   if (value.key === 'Enter') {
     itemNote.innerText = value.target.value;
@@ -23,10 +24,26 @@ const itNote = (e) => {
   const notesPopUp = document.createElement('input');
   notesPopUp.id = 'itNote';
   notesPopUp.value = e.target.innerText;
+
   notesPopUp.classList = 'textarea';
   mainContainer.parentElement.appendChild(notesPopUp);
   const items = projects.projects[projectIndex].items[index - 1];
-  notesPopUp.addEventListener('keydown', (e) => { updateItem(items, e, index); });
+  notesPopUp.addEventListener('keydown', (e) => {
+    updateItem(items, e, index, e.target.classList);
+  });
 };
 
-export default { itNote };
+const editEventListeners = () => {
+  const { itemsTable } = elements.ele();
+  const allRows = itemsTable.querySelectorAll('tr');
+  allRows.forEach((row, index) => {
+    if (index !== 0) {
+      const allFields = row.querySelectorAll('td');
+      allFields.forEach((field, index) => {
+        field.addEventListener('click', itNote);
+      });
+    }
+  });
+};
+
+export default { itNote, editEventListeners };

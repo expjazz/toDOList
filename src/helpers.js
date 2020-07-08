@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 /* eslint-disable import/no-cycle */
 import elements from './elements';
 import Project from './project';
@@ -50,6 +51,23 @@ const showListItem = (e) => {
   showList.toDoItem(x.items, index);
 };
 
+const submitItemForm = (e) => {
+  e.preventDefault();
+
+  const inputValues = [];
+  const form = e.target;
+
+  form.querySelectorAll('input').forEach((input) => {
+    inputValues.push(input.value);
+  });
+
+  const { index } = form.parentElement.children[0].dataset;
+
+  const newItem = Item.Item(...inputValues);
+  populateItemsTable(newItem, index);
+  displayForm(e);
+};
+
 const populateItemForm = (itemForm) => {
   const itemTitle = input.input('title');
   const itemDescription = input.input('description');
@@ -70,8 +88,6 @@ const deleteTask = (index, project, count) => {
   showList.toDoItem(project.items, count, true);
   project.items = tempList;
   showList.toDoItem(project.items, index);
-  console.log(project);
-  console.log(projects.projects);
 };
 
 
@@ -82,12 +98,11 @@ const populateItemsTable = (item, index) => {
   project.items.push(item);
   itemsTable.querySelector('tbody').innerHTML += `<tr>
     <th scope="row">${count}</th>
-    <td>${item.title}</td>
-    <td>${item.description}</td>
-    <td>${item.dueDate}</td>
-    <td>${item.priority}</td>
-    <td id="${count}itemNote">${item.notes}</td>
-    <td>${item.checkList}</td>
+    <td class='title'>${item.title}</td>
+    <td class='description'>${item.description}</td>
+    <td class='dueDate'>${item.dueDate}</td>
+    <td class='priority'>${item.priority}</td>
+    <td id="${count}itemNote" class='notes'>${item.notes}</td>
     <td><button class="btn btn-danger" id="${count}-deleteBtn"><i class="fas fa-trash"></i></button></td>
   </tr>`;
   const itemNote = document.getElementById(`${count}itemNote`);
@@ -97,23 +112,7 @@ const populateItemsTable = (item, index) => {
     const indexItem = id.split('-')[0];
     btn.addEventListener('click', (e) => { deleteTask(index, project, indexItem); });
   });
-};
-
-const submitItemForm = (e) => {
-  e.preventDefault();
-
-  const inputValues = [];
-  const form = e.target;
-
-  form.querySelectorAll('input').forEach((input) => {
-    inputValues.push(input.value);
-  });
-
-  const { index } = form.parentElement.children[0].dataset;
-
-  const newItem = Item.Item(...inputValues);
-  populateItemsTable(newItem, index);
-  displayForm(e);
+  itNote.editEventListeners();
 };
 
 

@@ -5,6 +5,7 @@ import addBtn from './addBtn';
 import form from './form';
 import helper from './helpers';
 import projects from './logic';
+import edit from './itemNote';
 
 const toDoItem = (items, index) => {
   const { appendContent } = elements.ele();
@@ -27,6 +28,7 @@ const toDoItem = (items, index) => {
   const itemFormBtn = addBtn.addBtn('Add Todo Items', '<i class="fas fa-plus"></i>');
   firstItemContainer.append(itemFormBtn);
   itemFormBtn.addEventListener('click', helper.displayForm);
+  edit.editEventListeners();
 };
 
 export default { toDoItem };
