@@ -16,7 +16,8 @@ const createNewProject = (e) => {
 
 // display Form
 const displayForm = (e) => {
-  const form = e.target.parentElement.querySelector('form');
+  const form = e.target.parentElement.querySelector('form') || document.getElementById('itemForm');
+  console.log(form);
   form.classList.toggle('d-none');
 
   setTimeout(() => form.classList.toggle('inactive'), 150);
@@ -66,9 +67,10 @@ const populateItemForm = (itemForm) => {
 };
 
 const deleteTask = (index, project, count) => {
-  const whatever = project.items.filter((item) => item !== project.items[count - 1]);
-  console.log(whatever);
+  const tempList = project.items.filter((item) => item !== project.items[count - 1]);
   showList.toDoItem(project.items, count, true);
+  project.items = tempList;
+  console.log(projects.projects);
 };
 
 
@@ -91,9 +93,7 @@ const populateItemsTable = (item, index) => {
   itemNote.addEventListener('click', itNote.itNote);
   itemsTable.querySelectorAll('button').forEach((btn) => {
     const { id } = btn;
-    console.log(id.split('-'));
     const indexItem = id.split('-')[0];
-    console.log(indexItem);
     btn.addEventListener('click', (e) => { deleteTask(index, project, indexItem); });
   });
 };
@@ -117,5 +117,5 @@ const submitItemForm = (e) => {
 
 
 export default {
-  createNewProject, displayForm, addNewProject, populateProjectList, showListItem, populateItemForm, submitItemForm,
+  createNewProject, displayForm, addNewProject, populateProjectList, showListItem, populateItemForm, submitItemForm, deleteTask,
 };

@@ -26,6 +26,8 @@ const itemList = (items, number) => {
     <td>${item.prioriry}</td>
     <td id="${count}Note">${item.notes}</td>
     <td>${item.checklist}</td>
+    <td><button class="btn btn-danger" id="${count}-deleteBtn"><i class="fas fa-trash"></i></button></td>
+
   </tr>`;
   }).join('')
 }
