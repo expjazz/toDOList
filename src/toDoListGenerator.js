@@ -27,7 +27,7 @@ const toDoItem = (items, index) => {
 
   const itemFormBtn = addBtn.addBtn('Add Todo Items', '<i class="fas fa-plus"></i>');
   firstItemContainer.append(itemFormBtn);
-  itemFormBtn.addEventListener('click', helper.displayForm);
+  itemFormBtn.addEventListener('click', helper.displayForm2);
   edit.editEventListeners();
 };
 

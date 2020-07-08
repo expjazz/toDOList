@@ -12,8 +12,8 @@ form {
   opacity: 1;
 }
 
-.blur-container{
-  filter: blur(2px)
+.blur-container {
+  filter: blur(2px);
 }
 
 .textarea {
@@ -31,6 +31,12 @@ form {
   color: gold;
 }
 
-i, li, button, ul {
+i,
+a,
+button {
   pointer-events: cursor;
+}
+
+ul {
+  width: fit-content;
 }

@@ -10,13 +10,6 @@ const title = (titleContent) => {
   return title;
 };
 
-const description = (projectDescription) => {
-  const desc = document.createElement('p');
-  desc.innerText = projectDescription;
-  return desc;
-};
-
-
 const projectFormInputs = () => {
   const { projectForm } = elements.ele();
 

@@ -17,7 +17,6 @@ const createNewProject = (e) => {
 // display Form
 const displayForm = (e) => {
   let form;
-  console.log(e.target.tagName);
   if (e.target.tagName === 'DIV') {
     form = e.target.parentElement.querySelector('form') || document.getElementById('itemForm');
   } else if (e.target.tagName === 'I') {
@@ -29,13 +28,19 @@ const displayForm = (e) => {
   setTimeout(() => form.classList.toggle('inactive'), 150);
 };
 const deleteProject = (e) => {
-  console.log('object');
   const projectTitle = e.target.dataset.title;
 
   const newProjects = projects.projects.filter((proj) => proj.title !== projectTitle);
   projects.projects = newProjects;
   populateProjectList();
 };
+
+const displayForm2 = (e) => {
+  const form = e.target.parentElement.querySelector('form') || document.getElementById('itemForm');
+  form.classList.toggle('d-none');
+  setTimeout(() => form.classList.toggle('inactive'), 150);
+};
+
 // populate project list
 const populateProjectList = (project = null) => {
   const { projectUl } = elements.ele();
@@ -59,6 +64,8 @@ const addNewProject = (e) => {
   });
   const newProject = Project.Project(...inputValues);
   populateProjectList(newProject);
+  form.reset();
+  displayForm();
 };
 
 // show list item on the right
@@ -108,7 +115,8 @@ const populateItemForm = (itemForm) => {
 
   const submitBtn = btn.addBtn('Create item');
   itemForm.addEventListener('submit', submitItemForm);
-  itemForm.innerHTML = itemTitle + itemDescription + itemDueDate + itemPriority + itemNotes + itemChecklist;
+  itemForm.innerHTML = itemTitle + itemDescription + itemDueDate + itemPriority
+  + itemNotes + itemChecklist;
   itemForm.appendChild(submitBtn);
 };
 
@@ -140,12 +148,21 @@ const populateItemsTable = (item, index) => {
   itemsTable.querySelectorAll('button').forEach((btn) => {
     const { id } = btn;
     const indexItem = id.split('-')[0];
-    btn.addEventListener('click', (e) => { deleteTask(index, project, indexItem); });
+    btn.addEventListener('click', () => { deleteTask(index, project, indexItem); });
   });
   itNote.editEventListeners();
 };
 
 
 export default {
-  createNewProject, displayForm, addNewProject, populateProjectList, showListItem, populateItemForm, submitItemForm, deleteTask, deleteProject,
+  createNewProject,
+  displayForm,
+  addNewProject,
+  populateProjectList,
+  showListItem,
+  populateItemForm,
+  submitItemForm,
+  deleteTask,
+  deleteProject,
+  displayForm2,
 };

@@ -1,6 +1,5 @@
-import Item from './item';
+/* eslint-disable import/no-cycle */
 import Project from './project';
-import projectList from './projectList';
 import generator from './projectGenerator';
 import pageGen from './mainFile';
 
