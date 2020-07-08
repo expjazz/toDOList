@@ -16,12 +16,18 @@ const createNewProject = (e) => {
 
 // display Form
 const displayForm = (e) => {
-  const form = e.target.parentElement.querySelector('form') || document.getElementById('itemForm');
+  let form;
+  console.log(e.target.tagName);
+  if (e.target.tagName === 'DIV') {
+    form = e.target.parentElement.querySelector('form') || document.getElementById('itemForm');
+  } else if (e.target.tagName === 'I') {
+    form = e.target.parentElement.parentElement.parentElement.querySelector('form');
+  } else {
+    form = e.target.parentElement.parentElement.querySelector('form');
+  }
   form.classList.toggle('d-none');
-
   setTimeout(() => form.classList.toggle('inactive'), 150);
 };
-
 const deleteProject = (e) => {
   console.log('object');
   const projectTitle = e.target.dataset.title;
@@ -65,6 +71,12 @@ const showListItem = (e) => {
     y.appendChild(btn);
     const index = projects.projects.indexOf(x);
     showList.toDoItem(x.items, index);
+    y.classList.toggle('activate');
+    y.parentElement.querySelectorAll('li').forEach((li) => {
+      if (li !== y) {
+        li.classList.remove('activate');
+      }
+    });
   }
 };
 

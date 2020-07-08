@@ -24,3 +24,13 @@ form {
   background-color: red;
   filter: blur(0);
 }
+
+.activate {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: gold;
+}
+
+i, li, button, ul {
+  pointer-events: cursor;
+}
