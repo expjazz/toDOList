@@ -64,20 +64,22 @@ const populateItemForm = (itemForm) => {
   itemForm.appendChild(submitBtn);
 };
 
+
 const populateItemsTable = (item, index) => {
   const { itemsTable } = elements.ele();
   const project = projects.projects[index];
+  const count = document.querySelector('tbody').childElementCount + 1;
   project.items.push(item);
   itemsTable.querySelector('tbody').innerHTML += `<tr>
-    <th scope="row">1</th>
+    <th scope="row">${count}</th>
     <td>${item.title}</td>
     <td>${item.description}</td>
     <td>${item.dueDate}</td>
     <td>${item.priority}</td>
-    <td id="itemNote">${item.notes}</td>
+    <td id="${count}itemNote">${item.notes}</td>
     <td>${item.checkList}</td>
   </tr>`;
-  const { itemNote } = elements.ele();
+  const itemNote = document.getElementById(`${count}itemNote`);
   itemNote.addEventListener('click', itNote.itNote);
 };
 

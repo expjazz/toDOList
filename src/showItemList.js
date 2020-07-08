@@ -24,12 +24,11 @@ const itemList = (items, number) => {
     <td>${item.description}</td>
     <td>${item.dueDate}</td>
     <td>${item.prioriry}</td>
-    <td>${item.notes}</td>
+    <td id="${count}Note">${item.notes}</td>
     <td>${item.checklist}</td>
   </tr>`;
   }).join('')
 }
-
 </tbody>
 </table> `;
 };
