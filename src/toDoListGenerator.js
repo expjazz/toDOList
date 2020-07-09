@@ -1,11 +1,11 @@
-/* eslint-disable import/no-cycle */
 import elements from './elements';
 import showItemList from './showItemList';
 import addBtn from './addBtn';
 import form from './form';
 import helper from './helpers';
-import projects from './logic';
 import edit from './itemNote';
+import projectsArray from './components/project/projectsArray';
+
 
 const toDoItem = (items, index) => {
   const { appendContent } = elements.ele();
@@ -20,7 +20,7 @@ const toDoItem = (items, index) => {
   document.querySelector('.table').querySelectorAll('button').forEach((btn) => {
     const { id } = btn;
     const indexItem = id.split('-')[0];
-    const project = projects.projects[index];
+    const project = projectsArray.projectsArray[index];
     btn.addEventListener('click', () => { helper.deleteTask(index, project, indexItem); });
   });
   firstItemContainer.appendChild(itemForm);

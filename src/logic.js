@@ -1,19 +1,22 @@
-/* eslint-disable import/no-cycle */
+import generator from './components/project/projectGenerator';
 import Project from './project';
-import generator from './projectGenerator';
+import projHelpers from './components/project/projectHelpers';
 import pageGen from './mainFile';
+import projectsArray from './components/project/projectsArray';
+// // import helpers from './helpers';
+// import projectEventListeners from './components/project/projectEventListeners';
+// // const projects = JSON.parse(localStorage.getItem('Projects')) || [];
 
-const projects = JSON.parse(localStorage.getItem('Projects')) || [];
 
 const run = () => {
   const createToDoList = Project.Project('Today', 'LiveSession', 'Today', 'Important');
-  if (projects.length === 0) projects.push(createToDoList);
+  if (projectsArray.projectsArray.length === 0) projectsArray.projectsArray.push(createToDoList);
 
-
-  // createToDoWebsite.items.push(navbar);
 
   pageGen.mainPage();
-  generator.projectGenerator(projects);
+  generator.projectGenerator(projectsArray.projectsArray);
+  // projectEventListeners.addItemGeneratorToProject();
+  // projectEventListeners.addEventListeners();
 };
 
-export default { run, projects };
+export default { run };

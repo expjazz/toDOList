@@ -1,6 +1,5 @@
-/* eslint-disable import/no-cycle */
 import elements from './elements';
-import projects from './logic';
+import projectsArray from './components/project/projectsArray';
 
 const updateItem = (item, whatever, value, index, note) => {
   item[note] = value.target.value;
@@ -26,7 +25,7 @@ const itNote = (e) => {
   const whatever = e;
   notesPopUp.classList = 'textarea';
   mainContainer.parentElement.appendChild(notesPopUp);
-  const items = projects.projects[projectIndex].items[index - 1];
+  const items = projectsArray.projectsArray[projectIndex].items[index - 1];
   notesPopUp.addEventListener('keydown', (e) => {
     updateItem(items, whatever, e, index, whatever.target.classList[0]);
   });

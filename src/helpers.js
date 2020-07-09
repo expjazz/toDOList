@@ -1,9 +1,11 @@
 /* eslint-disable no-use-before-define */
-/* eslint-disable import/no-cycle */
+// import { projectsArray } from './components/project/projectsArray';
+import projectsArray from './components/project/projectsArray';
+
 import elements from './elements';
 import Project from './project';
 import projects from './logic';
-import projectsList from './projectList';
+import projectsList from './components/project/projectList';
 import showList from './toDoListGenerator';
 import input from './input';
 import btn from './addBtn';
@@ -11,9 +13,9 @@ import Item from './item';
 import itNote from './itemNote';
 import validate from './validations';
 
-const createNewProject = (e) => {
-  e.preventDefault();
-};
+// const createNewProject = (e) => {
+//   e.preventDefault();
+// };
 
 // display Form
 const displayForm = () => {
@@ -21,13 +23,7 @@ const displayForm = () => {
   form.classList.toggle('d-none');
   setTimeout(() => form.classList.toggle('inactive'), 150);
 };
-const deleteProject = (e) => {
-  const projectTitle = e.target.dataset.title;
 
-  const newProjects = projects.projects.filter((proj) => proj.title !== projectTitle);
-  projects.projects = newProjects;
-  populateProjectList();
-};
 
 const displayForm2 = (e) => {
   const form = e.target.parentElement.querySelector('form') || document.getElementById('itemForm');
@@ -36,15 +32,15 @@ const displayForm2 = (e) => {
 };
 
 // populate project list
-const populateProjectList = (project = null) => {
-  const { projectUl } = elements.ele();
-  if (project !== null) projects.projects.push(project);
-  projectUl.innerHTML = projectsList.projectList(projects.projects);
-  projectUl.querySelectorAll('button').forEach((btn) => {
-    btn.addEventListener('click', deleteProject);
-  });
-  localStorage.setItem('Projects', JSON.stringify(projects.projects));
-};
+// const populateProjectList = (project = null) => {
+//   const { projectUl } = elements.ele();
+//   if (project !== null) projects.projects.push(project);
+//   projectUl.innerHTML = projectsList.projectList(projects.projects);
+//   projectUl.querySelectorAll('button').forEach((btn) => {
+//     btn.addEventListener('click', deleteProject);
+//   });
+//   localStorage.setItem('Projects', JSON.stringify(projects.projects));
+// };
 
 // this creates a project object
 const addNewProject = (e) => {
@@ -68,9 +64,9 @@ const showListItem = (e) => {
     const y = e.target;
     const btn = e.target.querySelector('button');
     y.removeChild(btn);
-    const x = projects.projects.find((project) => project.title === y.innerText);
+    const x = projectsArray.projectsArray.find((project) => project.title === y.innerText);
     y.appendChild(btn);
-    const index = projects.projects.indexOf(x);
+    const index = projectsArray.projectsArray.indexOf(x);
     showList.toDoItem(x.items, index);
     y.classList.toggle('activate');
     y.parentElement.querySelectorAll('li').forEach((li) => {
@@ -136,7 +132,7 @@ const deleteTask = (index, project, count) => {
 
 const populateItemsTable = (item, index) => {
   const { itemsTable } = elements.ele();
-  const project = projects.projects[index];
+  const project = projectsArray.projectsArray[index];
   const count = document.querySelector('tbody').childElementCount + 1;
   project.items.push(item);
   itemsTable.querySelector('tbody').innerHTML += `<tr>

@@ -7,6 +7,8 @@ const ele = () => ({
   itemForm: document.getElementById('itemForm'),
   itemsTable: document.querySelector('.table'),
   itemNote: document.getElementById('itemNote'),
+  projectContainer: document.querySelector('.col-5'),
+  showFormBtn: document.getElementById('showFormBtn'),
 });
 
 export default { ele };

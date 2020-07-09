@@ -1,4 +1,3 @@
-/* eslint-disable import/no-cycle */
 import elements from './elements';
 import input from './input';
 import btn from './addBtn';
@@ -10,16 +9,16 @@ const title = (titleContent) => {
   return title;
 };
 
-const projectFormInputs = () => {
-  const { projectForm } = elements.ele();
+// const projectFormInputs = () => {
+//   const { projectForm } = elements.ele();
 
-  const projectTitle = input.input('title');
-  const projectDescription = input.input('description');
-  const projectDate = input.dateInput('date');
-  const submitBtn = btn.addBtn('Create Project');
-  projectForm.addEventListener('submit', helpers.addNewProject);
-  projectForm.innerHTML = projectTitle + projectDescription + projectDate;
-  projectForm.appendChild(submitBtn);
-};
+//   const projectTitle = input.input('title');
+//   const projectDescription = input.input('description');
+//   const projectDate = input.dateInput('date');
+//   const submitBtn = btn.addBtn('Create Project');
+//   projectForm.addEventListener('submit', helpers.addNewProject);
+//   projectForm.innerHTML = projectTitle + projectDescription + projectDate;
+//   projectForm.appendChild(submitBtn);
+// };
 
 export default { projectFormInputs, title };
