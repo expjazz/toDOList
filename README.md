@@ -4,7 +4,19 @@ This is a simple website where you can keep track of the tasks you need to do. Y
 
 ### Screenshots
 
+### Main Page
 ![Main page](./screenshot.png)
+### ToDo Item Form(valid)
+<img width="699" alt="Screenshot 2020-07-09 at 6 42 58 PM" src="https://user-images.githubusercontent.com/50610396/87061153-12df9b00-c214-11ea-88d9-442f70d1fb88.png">
+
+### ToDo Item Form(invalid)
+<img width="677" alt="Screenshot 2020-07-09 at 6 41 23 PM" src="https://user-images.githubusercontent.com/50610396/87061396-60f49e80-c214-11ea-8b7a-27aacf2fad0b.png">
+
+### Edit ToDo List Items
+<img width="1212" alt="Screenshot 2020-07-09 at 6 41 09 PM" src="https://user-images.githubusercontent.com/50610396/87061503-7f5a9a00-c214-11ea-86b9-9f4e83779204.png">
+
+### Datetime option
+<img width="707" alt="Screenshot 2020-07-09 at 6 41 46 PM" src="https://user-images.githubusercontent.com/50610396/87062084-41aa4100-c215-11ea-8785-2e1575e66d2d.png">
 
 ### FEATURES
 
@@ -15,6 +27,7 @@ You can register lists of tasks to do, and each list can have many tasks. You ca
 - HTML
 - CSS
 - Javascript
+- Bootstrap
 
 ### LIVE VERSION
 
