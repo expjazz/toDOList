@@ -1,5 +1,5 @@
 import elements from './elements';
-import projectsArray from './components/project/projectsArray';
+import projectsArray from '../components/project/projectsArray';
 
 const updateItem = (item, whatever, value, index, note) => {
   item[note] = value.target.value;

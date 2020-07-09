@@ -1,6 +1,6 @@
 import generator from './components/project/projectGenerator';
-import Project from './project';
-import pageGen from './mainFile';
+import Project from './common/project';
+import pageGen from './common/mainFile';
 import projectsArray from './components/project/projectsArray';
 
 const run = () => {

@@ -1,7 +1,7 @@
 /* eslint-disable no-use-before-define */
-import elements from '../../elements';
+import elements from '../../common/elements';
 import projectsArray from '../project/projectsArray';
-import editEventListeners from '../../itemNote';
+import editEventListeners from '../../common/itemNote';
 
 const deleteRow = (items) => {
   let count = 0;

@@ -1,6 +1,6 @@
 import displayProjectForm from './displayProjectForm';
 import projectHelpers from './projectHelpers';
-import Project from '../../project';
+import Project from '../../common/project';
 
 const addNewProject = (e) => {
   e.preventDefault();

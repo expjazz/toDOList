@@ -1,4 +1,4 @@
-import elements from '../../elements';
+import elements from '../../common/elements';
 import projectHelpers from './projectHelpers';
 import showItemsFirst from '../items/showItemsFirst';
 import displayProjectForm from './displayProjectForm';

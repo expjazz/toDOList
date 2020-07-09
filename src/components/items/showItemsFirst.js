@@ -1,13 +1,13 @@
 /* eslint-disable no-use-before-define */
 import projectsArray from '../project/projectsArray';
-import elements from '../../elements';
-import form from '../../form';
+import elements from '../../common/elements';
+import form from '../../common/form';
 import itemPopulate from './itemFormGenerator';
-import createItemList from '../../showItemList';
+import createItemList from '../../common/showItemList';
 import deleteTask from './deleteTask';
-import addBtn from '../../addBtn';
+import addBtn from '../../common/addBtn';
 import displayForm2 from './displayItemForm';
-import edit from '../../itemNote';
+import edit from '../../common/itemNote';
 
 const showListItem = (e) => {
   if (e.target.tagName === 'LI') {

@@ -1,7 +1,7 @@
 import list from './projectList';
-import elements from '../../elements';
-import form from '../../form';
-import btn from '../../addBtn';
+import elements from '../../common/elements';
+import form from '../../common/form';
+import btn from '../../common/addBtn';
 import projectHelpers from './projectHelpers';
 import projectEventListeners from './projectEventListeners';
 

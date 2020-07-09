@@ -1,8 +1,8 @@
 /* eslint-disable no-use-before-define */
-import elements from '../../elements';
+import elements from '../../common/elements';
 import projectsList from './projectList';
-import input from '../../input';
-import btn from '../../addBtn';
+import input from '../../common/input';
+import btn from '../../common/addBtn';
 import projectsArray from './projectsArray';
 
 const createNewProject = (e) => {

@@ -1,8 +1,8 @@
-import input from '../../input';
-import btn from '../../addBtn';
+import input from '../../common/input';
+import btn from '../../common/addBtn';
 import projectsArray from '../project/projectsArray';
-import validate from '../../validations';
-import Item from '../../item';
+import validate from '../../common/validations';
+import Item from '../../common/item';
 import displayItemForm from './displayItemForm';
 import deleteRow from './deleteTask';
 
