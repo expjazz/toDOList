@@ -1,6 +1,6 @@
-import elements from '../../elements';
+import elements from '../../common/elements';
 import projectsArray from '../project/projectsArray';
-import itNote from '../../itemNote';
+import itNote from '../../common/itemNote';
 import deleteTask from './deleteTask';
 
 const populateItemsTable = (item, index) => {
