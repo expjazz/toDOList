@@ -4,8 +4,9 @@ import addBtn from './addBtn';
 import form from './form';
 import edit from './itemNote';
 import projectsArray from './components/project/projectsArray';
-import itemHelpers from './components/items/itemsHelpers';
 import itemPopulate from './components/items/itemFormGenerator';
+import displayForm2 from './components/items/displayItemForm';
+import deleteTask from './components/items/deleteTask';
 
 
 const toDoItem = (items, index) => {
@@ -22,13 +23,13 @@ const toDoItem = (items, index) => {
     const { id } = btn;
     const indexItem = id.split('-')[0];
     const project = projectsArray.projectsArray[index];
-    btn.addEventListener('click', () => { itemHelpers.deleteTask(index, project, indexItem); });
+    btn.addEventListener('click', () => { deleteTask.deleteTask(index, project, indexItem); });
   });
   firstItemContainer.appendChild(itemForm);
 
   const itemFormBtn = addBtn.addBtn('Add Todo Items', '<i class="fas fa-plus"></i>');
   firstItemContainer.append(itemFormBtn);
-  itemFormBtn.addEventListener('click', itemHelpers.displayForm2);
+  itemFormBtn.addEventListener('click', displayForm2.displayForm2);
   edit.editEventListeners();
 };
 

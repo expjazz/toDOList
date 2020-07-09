@@ -1,7 +1,7 @@
 import elements from '../../elements';
 import projectsArray from '../project/projectsArray';
 import itNote from '../../itemNote';
-import itemHelpers from './itemsHelpers';
+import deleteTask from './deleteTask';
 
 const populateItemsTable = (item, index) => {
   const { itemsTable } = elements.ele();
@@ -23,7 +23,7 @@ const populateItemsTable = (item, index) => {
   itemsTable.querySelectorAll('button').forEach((btn) => {
     const { id } = btn;
     const indexItem = id.split('-')[0];
-    btn.addEventListener('click', () => { itemHelpers.deleteTask(index, project, indexItem); });
+    btn.addEventListener('click', () => { deleteTask.deleteTask(index, project, indexItem); });
   });
   itNote.editEventListeners();
 };

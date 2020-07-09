@@ -3,6 +3,7 @@ import showList from '../../toDoListGenerator';
 import validate from '../../validations';
 import Item from '../../item';
 import itemPopulateTable from './itemPopulateTable';
+import displayItemForm from './displayItemForm';
 
 
 // show list item on the right
@@ -22,19 +23,6 @@ const showListItem = (e) => {
       }
     });
   }
-};
-
-const deleteTask = (index, project, count) => {
-  const tempList = project.items.filter((item) => item !== project.items[count - 1]);
-  showList.toDoItem(project.items, count, true);
-  project.items = tempList;
-  showList.toDoItem(project.items, index);
-};
-
-const displayForm2 = (e) => {
-  const form = e.target.parentElement.querySelector('form') || document.getElementById('itemForm');
-  form.classList.toggle('d-none');
-  setTimeout(() => form.classList.toggle('inactive'), 150);
 };
 
 const submitItemForm = (e) => {
@@ -63,10 +51,10 @@ const submitItemForm = (e) => {
 
   const newItem = Item.Item(...inputValues);
   itemPopulateTable.populateItemsTable(newItem, index);
-  displayForm2(e);
+  displayItemForm.displayForm2(e);
 };
 
 
 export default {
-  showListItem, deleteTask, displayForm2, submitItemForm,
+  showListItem, submitItemForm,
 };
