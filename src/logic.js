@@ -4,7 +4,6 @@ import projHelpers from './components/project/projectHelpers';
 import pageGen from './mainFile';
 import projectsArray from './components/project/projectsArray';
 // // import helpers from './helpers';
-// import projectEventListeners from './components/project/projectEventListeners';
 // // const projects = JSON.parse(localStorage.getItem('Projects')) || [];
 
 
@@ -15,8 +14,6 @@ const run = () => {
 
   pageGen.mainPage();
   generator.projectGenerator(projectsArray.projectsArray);
-  // projectEventListeners.addItemGeneratorToProject();
-  // projectEventListeners.addEventListeners();
 };
 
 export default { run };

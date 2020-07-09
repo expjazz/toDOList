@@ -3,9 +3,10 @@ import elements from '../../elements';
 import form from '../../form';
 import btn from '../../addBtn';
 import projectHelpers from './projectHelpers';
+import projectEventListeners from './projectEventListeners';
 
 const projectGenerator = (projects) => {
-  console.log(projects.projectsArray);
+  console.log(projects);
   const { appendContent } = elements.ele();
 
   const projectContainer = document.createElement('div');
@@ -15,10 +16,10 @@ const projectGenerator = (projects) => {
   title.innerText = 'Project';
 
   // ul.addEventListener('click', helpers.showListItem);
+  ul.id = 'projectList';
 
   ul.classList = 'd-flex justify-content-center flex-column';
   ul.innerHTML = list.projectList(projects);
-  ul.id = 'projectList';
 
   projectContainer.appendChild(title);
   projectContainer.appendChild(ul);
@@ -29,14 +30,12 @@ const projectGenerator = (projects) => {
   const showFormBtn = btn.addBtn(null, '<i class="fas fa-plus"></i>');
   showFormBtn.id = 'showFormBtn';
   projectContainer.appendChild(showFormBtn);
+  console.log('object');
+  console.log(projectEventListeners);
   projectHelpers.projectFormInputs();
-  // projectContainer.addEventListener('submit', helpers.createNewProject);
-  // showFormBtn.addEventListener('click', helpers.displayForm);
-  // const btns = ul.querySelectorAll('button');
-  // btns.forEach((btn) => {
-  //   btn.addEventListener('click', helpers.deleteProject);
-  // });
-  console.log('project generator');
+
+  projectEventListeners.addItemGeneratorToProject();
+  projectEventListeners.addEventListeners();
 };
 
 export default { projectGenerator };

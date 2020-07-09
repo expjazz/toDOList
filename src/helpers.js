@@ -4,8 +4,8 @@ import projectsArray from './components/project/projectsArray';
 
 import elements from './elements';
 import Project from './project';
-import projects from './logic';
-import projectsList from './components/project/projectList';
+// import projects from './logic';
+// import projectsList from './components/project/projectList';
 import showList from './toDoListGenerator';
 import input from './input';
 import btn from './addBtn';
@@ -157,14 +157,11 @@ const populateItemsTable = (item, index) => {
 
 
 export default {
-  createNewProject,
   displayForm,
   addNewProject,
-  populateProjectList,
   showListItem,
   populateItemForm,
   submitItemForm,
   deleteTask,
-  deleteProject,
   displayForm2,
 };

@@ -3,6 +3,7 @@ import elements from '../../elements';
 import projectHelpers from './projectHelpers';
 
 const addItemGeneratorToProject = () => {
+  console.log('itemgem');
   const { projectUl } = elements.ele();
   projectUl.addEventListener('click', helpers.showListItem);
 };

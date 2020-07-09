@@ -1,6 +1,8 @@
 import elements from '../../elements';
 import projectsList from './projectList';
 import proj from './projectsArray';
+import input from '../../input';
+import btn from '../../addBtn';
 
 const createNewProject = (e) => {
   e.preventDefault();
@@ -33,7 +35,7 @@ const projectFormInputs = () => {
   const projectDescription = input.input('description');
   const projectDate = input.dateInput('date');
   const submitBtn = btn.addBtn('Create Project');
-  projectForm.addEventListener('submit', helpers.addNewProject);
+  // projectForm.addEventListener('submit', helpers.addNewProject);
   projectForm.innerHTML = projectTitle + projectDescription + projectDate;
   projectForm.appendChild(submitBtn);
 };
