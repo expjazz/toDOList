@@ -2,7 +2,7 @@ import projectsArray from '../project/projectsArray';
 import showList from '../../toDoListGenerator';
 import validate from '../../validations';
 import Item from '../../item';
-import itemPopulateTable from './itemPopulateTable';
+// import itemPopulateTable from './itemPopulateTable';
 import displayItemForm from './displayItemForm';
 import deleteRow from './deleteTask';
 
