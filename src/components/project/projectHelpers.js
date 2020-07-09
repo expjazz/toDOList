@@ -1,30 +1,29 @@
 import elements from '../../elements';
 import projectsList from './projectList';
-import proj from './projectsArray';
 import input from '../../input';
 import btn from '../../addBtn';
+import projectsArray from './projectsArray';
 
 const createNewProject = (e) => {
   e.preventDefault();
 };
 
-const projectsArray = proj.exportProjectsArray;
 
 const populateProjectList = (project = null) => {
   const { projectUl } = elements.ele();
-  if (project !== null) projectsArray.projects.push(project);
-  projectUl.innerHTML = projectsList.projectList(projectsArray.projects);
+  if (project !== null) projectsArray.projectsArray.push(project);
+  projectUl.innerHTML = projectsList.projectList(projectsArray.projectsArray);
   projectUl.querySelectorAll('button').forEach((btn) => {
     btn.addEventListener('click', deleteProject);
   });
-  localStorage.setItem('Projects', JSON.stringify(projectsArray.projects));
+  localStorage.setItem('Projects', JSON.stringify(projectsArray.projectsArray));
 };
 
 const deleteProject = (e) => {
   const projectTitle = e.target.dataset.title;
 
-  const newProjects = projectsArray.projects.filter((proj) => proj.title !== projectTitle);
-  projectsArray.projects = newProjects;
+  const newProjects = projectsArray.projectsArray.filter((proj) => proj.title !== projectTitle);
+  projectsArray.projectsArray = newProjects;
   populateProjectList();
 };
 
@@ -40,5 +39,5 @@ const projectFormInputs = () => {
 };
 
 export default {
-  createNewProject, deleteProject, projectsArray, projectFormInputs,
+  createNewProject, deleteProject, populateProjectList, projectFormInputs,
 };
