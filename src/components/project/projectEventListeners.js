@@ -1,11 +1,11 @@
 import helpers from '../../helpers';
 import elements from '../../elements';
 import projectHelpers from './projectHelpers';
+import itemHelpers from '../items/itemsHelpers';
 
 const addItemGeneratorToProject = () => {
-  console.log('itemgem');
   const { projectUl } = elements.ele();
-  projectUl.addEventListener('click', helpers.showListItem);
+  projectUl.addEventListener('click', itemHelpers.showListItem);
 };
 
 const addEventListeners = () => {

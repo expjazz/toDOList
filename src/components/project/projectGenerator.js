@@ -6,7 +6,6 @@ import projectHelpers from './projectHelpers';
 import projectEventListeners from './projectEventListeners';
 
 const projectGenerator = (projects) => {
-  console.log(projects);
   const { appendContent } = elements.ele();
 
   const projectContainer = document.createElement('div');
@@ -15,7 +14,6 @@ const projectGenerator = (projects) => {
   const title = document.createElement('h1');
   title.innerText = 'Project';
 
-  // ul.addEventListener('click', helpers.showListItem);
   ul.id = 'projectList';
 
   ul.classList = 'd-flex justify-content-center flex-column';
@@ -30,8 +28,6 @@ const projectGenerator = (projects) => {
   const showFormBtn = btn.addBtn(null, '<i class="fas fa-plus"></i>');
   showFormBtn.id = 'showFormBtn';
   projectContainer.appendChild(showFormBtn);
-  console.log('object');
-  console.log(projectEventListeners);
   projectHelpers.projectFormInputs();
 
   projectEventListeners.addItemGeneratorToProject();
