@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 import elements from '../../elements';
 import projectsList from './projectList';
 import input from '../../input';
@@ -26,6 +27,7 @@ const deleteProject = (e) => {
   projectsArray.projectsArray = newProjects;
   populateProjectList();
 };
+
 
 const projectFormInputs = () => {
   const { projectForm } = elements.ele();

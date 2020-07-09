@@ -1,6 +1,7 @@
 /* eslint-disable no-use-before-define */
 import elements from '../../elements';
 import projectsArray from '../project/projectsArray';
+import editEventListeners from '../../itemNote';
 
 const deleteRow = (items) => {
   let count = 0;
@@ -28,6 +29,8 @@ const deleteRow = (items) => {
     const project = projectsArray.projectsArray[projIndex];
     btn.addEventListener('click', () => { deleteTask(project, indexItem); });
   });
+  editEventListeners.editEventListeners();
+  localStorage.setItem('Projects', JSON.stringify(projectsArray.projectsArray));
 };
 
 const deleteTask = (project, count) => {
