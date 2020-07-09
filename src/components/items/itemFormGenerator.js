@@ -1,7 +1,43 @@
 import input from '../../input';
 import btn from '../../addBtn';
-import submitItemForm from './itemsHelpers';
+import projectsArray from '../project/projectsArray';
+import validate from '../../validations';
+import Item from '../../item';
+import displayItemForm from './displayItemForm';
+import deleteRow from './deleteTask';
 
+
+const submitItemForm = (e) => {
+  e.preventDefault();
+
+  const inputValues = [];
+  const form = e.target;
+  let validateFlag = true;
+  form.querySelectorAll('input').forEach((input) => {
+    // validation method
+    validateFlag = validate.empty(input);
+    if (validateFlag === false) {
+      input.classList.add('is-invalid');
+      input.classList.remove('is-valid');
+    } else {
+      input.classList.add('is-valid');
+      input.classList.remove('is-invalid');
+    }
+    inputValues.push(input.value);
+  });
+
+  if (validateFlag === false) {
+    return;
+  }
+  const { index } = form.parentElement.children[0].dataset;
+
+  const newItem = Item.Item(...inputValues);
+  // itemPopulateTable.populateItemsTable(newItem, index);
+  const project = projectsArray.projectsArray[index];
+  project.items.push(newItem);
+  deleteRow.deleteRow(project.items);
+  displayItemForm.displayForm2(e);
+};
 
 const populateItemForm = (itemForm) => {
   const itemTitle = input.input('title');
@@ -13,10 +49,9 @@ const populateItemForm = (itemForm) => {
 
 
   const submitBtn = btn.addBtn('Create item');
-  itemForm.addEventListener('submit', submitItemForm.submitItemForm);
+  itemForm.addEventListener('submit', submitItemForm);
   itemForm.innerHTML = itemTitle + itemDescription + itemDueDate + itemPriority
   + itemNotes + itemChecklist;
   itemForm.appendChild(submitBtn);
 };
-
 export default { populateItemForm };

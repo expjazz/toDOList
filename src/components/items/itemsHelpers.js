@@ -1,30 +1,9 @@
 import projectsArray from '../project/projectsArray';
-import showList from '../../toDoListGenerator';
 import validate from '../../validations';
 import Item from '../../item';
-// import itemPopulateTable from './itemPopulateTable';
 import displayItemForm from './displayItemForm';
 import deleteRow from './deleteTask';
 
-
-// show list item on the right
-const showListItem = (e) => {
-  if (e.target.tagName === 'LI') {
-    const y = e.target;
-    const btn = e.target.querySelector('button');
-    y.removeChild(btn);
-    const x = projectsArray.projectsArray.find((project) => project.title === y.innerText);
-    y.appendChild(btn);
-    const index = projectsArray.projectsArray.indexOf(x);
-    showList.toDoItem(x.items, index);
-    y.classList.toggle('activate');
-    y.parentElement.querySelectorAll('li').forEach((li) => {
-      if (li !== y) {
-        li.classList.remove('activate');
-      }
-    });
-  }
-};
 
 const submitItemForm = (e) => {
   e.preventDefault();
@@ -60,5 +39,5 @@ const submitItemForm = (e) => {
 
 
 export default {
-  showListItem, submitItemForm,
+  submitItemForm,
 };
