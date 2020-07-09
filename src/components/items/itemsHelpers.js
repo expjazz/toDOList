@@ -4,6 +4,7 @@ import validate from '../../validations';
 import Item from '../../item';
 import itemPopulateTable from './itemPopulateTable';
 import displayItemForm from './displayItemForm';
+import deleteRow from './deleteTask';
 
 
 // show list item on the right
@@ -50,7 +51,10 @@ const submitItemForm = (e) => {
   const { index } = form.parentElement.children[0].dataset;
 
   const newItem = Item.Item(...inputValues);
-  itemPopulateTable.populateItemsTable(newItem, index);
+  // itemPopulateTable.populateItemsTable(newItem, index);
+  const project = projectsArray.projectsArray[index];
+  project.items.push(newItem);
+  deleteRow.deleteRow(project.items);
   displayItemForm.displayForm2(e);
 };
 
