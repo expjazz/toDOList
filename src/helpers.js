@@ -9,6 +9,7 @@ import input from './input';
 import btn from './addBtn';
 import Item from './item';
 import itNote from './itemNote';
+import validate from './validations';
 
 const createNewProject = (e) => {
   e.preventDefault();
@@ -85,11 +86,23 @@ const submitItemForm = (e) => {
 
   const inputValues = [];
   const form = e.target;
-
+  let validateFlag = true;
   form.querySelectorAll('input').forEach((input) => {
+    // validation method
+    validateFlag = validate.empty(input);
+    if (validateFlag === false) {
+      input.classList.add('is-invalid');
+      input.classList.remove('is-valid');
+    } else {
+      input.classList.add('is-valid');
+      input.classList.remove('is-invalid');
+    }
     inputValues.push(input.value);
   });
 
+  if (validateFlag === false) {
+    return;
+  }
   const { index } = form.parentElement.children[0].dataset;
 
   const newItem = Item.Item(...inputValues);
@@ -100,7 +113,7 @@ const submitItemForm = (e) => {
 const populateItemForm = (itemForm) => {
   const itemTitle = input.input('title');
   const itemDescription = input.input('description');
-  const itemDueDate = input.input('dueDate');
+  const itemDueDate = input.dateInput('dueDate');
   const itemPriority = input.input('priority');
   const itemNotes = input.input('notes');
   const itemChecklist = input.input('checkList');
