@@ -25,7 +25,7 @@ const submitItemForm = (e) => {
     }
     inputValues.push(input.value);
   });
-
+  validateFlag = Array.from(form.querySelectorAll('input')).every((input) => input.classList.contains('is-valid'));
   if (validateFlag === false) {
     return;
   }

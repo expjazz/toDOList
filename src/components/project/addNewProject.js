@@ -20,6 +20,7 @@ const addNewProject = (e) => {
     }
     inputValues.push(input.value);
   });
+  validateFlag = Array.from(form.querySelectorAll('input')).every((input) => input.classList.contains('is-valid'));
   if (validateFlag === false) return;
   form.querySelectorAll('input').forEach((input) => input.classList.remove('is-valid'));
   const newProject = Project.Project(...inputValues);

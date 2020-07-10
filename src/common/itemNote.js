@@ -15,7 +15,6 @@ const updateItem = (item, e, value, index, note) => {
 
 const itNote = (e) => {
   e.stopPropagation();
-  console.log(e.target);
   const index = e.target.parentElement.children[0].innerText;
   const projectIndex = e.target.parentElement.parentElement.parentElement.dataset.index;
   const { mainContainer } = elements.ele();
