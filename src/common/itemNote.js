@@ -1,9 +1,9 @@
 import elements from './elements';
 import projectsArray from '../components/project/projectsArray';
 
-const updateItem = (item, whatever, value, index, note) => {
+const updateItem = (item, e, value, index, note) => {
   item[note] = value.target.value;
-  const itemNote = whatever.target;
+  const itemNote = e.target;
   const { mainContainer } = elements.ele();
   if (value.key === 'Enter') {
     itemNote.innerText = value.target.value;
@@ -15,19 +15,23 @@ const updateItem = (item, whatever, value, index, note) => {
 
 const itNote = (e) => {
   e.stopPropagation();
+  console.log(e.target);
   const index = e.target.parentElement.children[0].innerText;
   const projectIndex = e.target.parentElement.parentElement.parentElement.dataset.index;
   const { mainContainer } = elements.ele();
   mainContainer.classList.add('blur-container');
   const notesPopUp = document.createElement('input');
+  if (e.target.classList.contains('dueDate')) {
+    notesPopUp.type = 'datetime-local';
+  }
   notesPopUp.id = 'itNote';
   notesPopUp.value = e.target.innerText;
-  const whatever = e;
+  const event = e;
   notesPopUp.classList = 'textarea';
   mainContainer.parentElement.appendChild(notesPopUp);
   const items = projectsArray.projectsArray[projectIndex].items[index - 1];
   notesPopUp.addEventListener('keydown', (e) => {
-    updateItem(items, whatever, e, index, whatever.target.classList[0]);
+    updateItem(items, event, e, index, event.target.classList[0]);
   });
 };
 
