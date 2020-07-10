@@ -1,9 +1,9 @@
 const empty = (input) => {
-  let whatever = true;
+  let valid = true;
   if (input.value === '') {
-    whatever = false;
+    valid = false;
   }
-  return whatever;
+  return valid;
 };
 
 export default { empty };

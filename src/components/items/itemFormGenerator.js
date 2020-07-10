@@ -29,10 +29,10 @@ const submitItemForm = (e) => {
   if (validateFlag === false) {
     return;
   }
+  form.querySelectorAll('input').forEach((input) => input.classList.remove('is-valid'));
   const { index } = form.parentElement.children[0].dataset;
   form.reset();
   const newItem = Item.Item(...inputValues);
-  // itemPopulateTable.populateItemsTable(newItem, index);
   const project = projectsArray.projectsArray[index];
   project.items.push(newItem);
 
